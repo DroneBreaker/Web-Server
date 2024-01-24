@@ -52,5 +52,7 @@ enum Method {
 }
 
 impl Request {
-    
+    // fn path() {
+
+    // }
 }
