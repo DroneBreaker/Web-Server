@@ -1,3 +1,10 @@
+use server::Server;
+use http::Request;
+use http::Method;
+
+mod server;
+mod http;
+
 fn main() {
     //Craete an enum instance
     let get = Method::GET;
@@ -11,48 +18,7 @@ fn main() {
     let patch = Method::PATCH;
 
     //Create a variable
-    let server = Server::new("127.0.0.1:8080".to_string());
+    let server = Server::new("127.0.0.1:8081".to_string());
     server.run();
 }
 
-struct Server {
-    addr: String, 
-}
-
-//functionality for Struct - Server
-// Self is used to point to the struct Server
-impl Server {
-    fn new(addr: String) -> Self {
-        Self {
-            addr: addr
-        }
-    }
-
-    fn run(self) {
-        println!("Listening on: {}", self.addr)
-    }
-}
-
-struct Request {
-    path: String,
-    query_string: String,
-    method: Method
-}
-
-enum Method {
-    GET,
-    POST, 
-    PUT, 
-    DELETE,
-    HEAD,
-    CONNECT,
-    OPTIONS,
-    TRACE,
-    PATCH
-}
-
-impl Request {
-    // fn path() {
-
-    // }
-}
